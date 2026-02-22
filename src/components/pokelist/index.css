@@ -1,11 +1,49 @@
 .poke-list-container{
     display: flex;
     flex-direction: column;
-
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .poke-list{
     display: flex;
     flex-wrap: wrap;
-    gap:8px;
+    justify-content: space-between;
+    gap:50px;
+}
+
+h2{
+    font-size: 2em;
+    line-height: 1.1;
+    color: gold;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-shadow: 15px 25px 10px rgba(0, 0, 0, 0.4);
+}
+
+h3{
+    font-size: 2em;
+    margin-top: 25px;
+    color: rgb(225, 144, 21);
+}
+
+input{
+  margin: 5px;
+  border-radius: 5px;
+  height: 20px;
+}
+
+.Ajouter{
+    background-color: rgb(252, 206, 106);
+    border-radius: 10px;
+    box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.4);
+    color: black;
+}
+
+button,input{
+    background-color: rgb(225, 144, 21);
+}
+
+button:hover{
+    background-color: rgb(255, 115, 0);
 }

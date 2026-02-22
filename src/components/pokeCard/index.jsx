@@ -7,9 +7,11 @@ import PokeTitle from "./pokeTitle";
 import PokeImage from "./pokeImage";
 
 const PokeCard = ({ pokemon }) => {
+    if (!pokemon || !pokemon.name || !pokemon.name.french) {
+        return null;
+    }
     const {pokemonData, loading} = usePokemon(pokemon.url);
-    console.log('pokeData',pokemonData)
-
+    console.log('pokeData',pokemonData);
 
     if (loading) {
         return <p>Chargement du Pokémon...</p>;
@@ -17,25 +19,21 @@ const PokeCard = ({ pokemon }) => {
 
 
     return (
-        <Link to={`/pokemonDetails/${encodeURIComponent(pokemon.url)}`}>
+        <Link to={`/pokemonDetails/${pokemon.id}`}>
         <div className="poke-card">
             <div className={`poke-card-header poke-type-${pokemonData.types?.[0]?.type?.name}`}>
-                <PokeTitle name={pokemon.name} />
+                <PokeTitle name={pokemon.name.french} />
             </div>
             <div className="poke-image-background">
-                <PokeImage imageUrl={pokemonData.sprites?.other?.['official-artwork']?.front_default} />
+                <PokeImage imageUrl={pokemon.image} />
             </div>
             <div>
-
-                {pokemonData.stats?.map((stat) => {
-                    return(
-                        <div className="poke-stat-row" key={stat.stat.name}>
-                            <span className={`poke-type-font poke-type-${stat.stat.name}`}>{stat.stat.name}</span>
-
-                            <span className="poke-type-font poke-stat-value">{stat.base_stat}</span>
-                        </div>
-                    ) 
-                })}    
+                {pokemon.base && Object.entries(pokemon.base).map(([statName, value]) => (
+                    <div className="poke-stat-row" key={statName}>
+                    <span className={`poke-type-font poke-type-${statName}`}>{statName}</span>
+                    <span className="poke-type-font poke-stat-value">{value}</span>
+                    </div>
+                ))}   
 
             </div>
         </div>
@@ -44,3 +42,13 @@ const PokeCard = ({ pokemon }) => {
 }
 
 export default PokeCard;
+//<PokeImage imageUrl={pokemonData.sprites?.other?.['official-artwork']?.front_default} />
+/*{pokemonData.stats?.map((stat) => {
+                    return(
+                        <div className="poke-stat-row" key={stat.stat.name}>
+                            <span className={`poke-type-font poke-type-${stat.stat.name}`}>{stat.stat.name}</span>
+
+                            <span className="poke-type-font poke-stat-value">{stat.base_stat}</span>
+                        </div>
+                    ) 
+                })} */

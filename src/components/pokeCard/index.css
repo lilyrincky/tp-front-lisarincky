@@ -1,12 +1,13 @@
 .poke-card{
-    /* background-color: red; */
-    /* background-color: #7B4B94; */
     border-radius: 4px;
     display:flex;
     flex-direction: column;
     width: 200px;
     min-height: 250px;
     cursor: pointer;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 15px 25px 10px rgba(0, 0, 0, 0.4);
 }
 
 .poke-title{
@@ -35,6 +36,7 @@
 .poke-image-background{
     background-color: blanchedalmond;
     margin:8px;
+    border-radius: 15px;
 }
 
 .poke-type-font{
