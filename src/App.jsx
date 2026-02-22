@@ -12,12 +12,6 @@ function App() {
   useEffect(() => {
     console.log("App component mounted");
 
-
-    // setTimeout(() =>
-      // redirectToDetails()
-      // , 5000);
-
-
   }, []);
 
 

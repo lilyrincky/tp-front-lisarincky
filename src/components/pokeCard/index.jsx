@@ -42,13 +42,3 @@ const PokeCard = ({ pokemon }) => {
 }
 
 export default PokeCard;
-//<PokeImage imageUrl={pokemonData.sprites?.other?.['official-artwork']?.front_default} />
-/*{pokemonData.stats?.map((stat) => {
-                    return(
-                        <div className="poke-stat-row" key={stat.stat.name}>
-                            <span className={`poke-type-font poke-type-${stat.stat.name}`}>{stat.stat.name}</span>
-
-                            <span className="poke-type-font poke-stat-value">{stat.base_stat}</span>
-                        </div>
-                    ) 
-                })} */

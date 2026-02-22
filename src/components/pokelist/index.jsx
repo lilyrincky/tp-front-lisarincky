@@ -6,9 +6,8 @@ import './index.css';
 const PokeList = () => {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [page, setPage] = useState(0); //nouveau
-    const [customPokemons, setCustomPokemons] = useState([]); //nouveau
-    const [newPokemonName, setPokemonName] = useState(""); //nouveau
+    const [page, setPage] = useState(0); 
+    const [newPokemonName, setPokemonName] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
     const [isSearching, setIsSearching] = useState(false);
     const [newPokemonType, setPokemonType] = useState("");
@@ -22,7 +21,7 @@ const PokeList = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:3000/pokemons?page=${page+1}`/*"api/pokemons"/*`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${page * limit}`*/)/*modifié*/
+        fetch(`http://localhost:3000/pokemons?page=${page+1}`)
             .then((response) => response.json())
             .then((data) => {
                 setPokemons(data.data);
